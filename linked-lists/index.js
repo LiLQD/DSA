@@ -1,14 +1,14 @@
 class LinkedList {
   constructor() {
-    this.head = null;
+    this.headNode = null;
   }
   append(value) {
     const newNode = new Node(value, null);
-    if (this.head === null) {
+    if (this.headNode === null) {
       this.prepend(value);
       return;
     } else {
-      let currentNode = this.head;
+      let currentNode = this.headNode;
       while (currentNode.nextNode !== null) {
         currentNode = currentNode.nextNode;
       }
@@ -16,25 +16,25 @@ class LinkedList {
     }
   }
   prepend(value) {
-    const newNode = new Node(value, this.head);
-    this.head = newNode;
+    const newNode = new Node(value, this.headNode);
+    this.headNode = newNode;
   }
   size() {
     let listSize = 0;
-    let currentNode = this.head;
+    let currentNode = this.headNode;
     while (currentNode !== null) {
       listSize++;
       currentNode = currentNode.nextNode;
     }
     return listSize;
   }
-  getHead() {
-    if (this.head === null) return;
-    return this.head.value;
+  head() {
+    if (this.headNode === null) return;
+    return this.headNode.value;
   }
-  getTail() {
-    if (this.head === null) return;
-    let currentNode = this.head;
+  tail() {
+    if (this.headNode === null) return;
+    let currentNode = this.headNode;
     while (currentNode.nextNode !== null) {
       currentNode = currentNode.nextNode;
     }
@@ -42,8 +42,8 @@ class LinkedList {
   }
   at(index) {
     if (index < 0) return;
-    if (this.head === null) return;
-    let currentNode = this.head;
+    if (this.headNode === null) return;
+    let currentNode = this.headNode;
     for (let i = 0; i < index; i++) {
       if (currentNode.nextNode === null) return;
       currentNode = currentNode.nextNode;
@@ -51,14 +51,14 @@ class LinkedList {
     return currentNode.value;
   }
   pop() {
-    if (this.head === null) return;
-    let headNode = this.head;
-    this.head = this.head.nextNode;
-    return headNode;
+    if (this.headNode === null) return;
+    let headNodeNode = this.headNode;
+    this.headNode = this.headNode.nextNode;
+    return headNodeNode;
   }
   contains(value) {
-    if (this.head === null) return false;
-    let currentNode = this.head;
+    if (this.headNode === null) return false;
+    let currentNode = this.headNode;
     while (currentNode !== null) {
       if (currentNode.value === value) return true;
       currentNode = currentNode.nextNode;
@@ -66,8 +66,8 @@ class LinkedList {
     return false;
   }
   findIndex(value) {
-    if (this.head === null) return;
-    let currentNode = this.head;
+    if (this.headNode === null) return;
+    let currentNode = this.headNode;
     let index = 0;
     while (currentNode !== null) {
       if (currentNode.value === value) return index;
@@ -77,20 +77,18 @@ class LinkedList {
     return;
   }
   toString() {
-    let str = "";
-    if (this.head === null) return str;
-    let currentNode = this.head;
+    let str = '';
+    if (this.headNode === null) return str;
+    let currentNode = this.headNode;
     while (currentNode !== null) {
       str += `( ${currentNode.value} ) -> `;
       currentNode = currentNode.nextNode;
     }
-    return (str += "null");
+    return (str += 'null');
   }
 }
 class Node {
-  value = null;
-  nextNode = null;
-  constructor(value, node) {
+  constructor(value = null, node = null) {
     this.value = value;
     this.nextNode = node;
   }

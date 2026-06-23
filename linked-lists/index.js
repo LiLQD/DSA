@@ -76,6 +76,16 @@ class LinkedList {
     }
     return;
   }
+  toString() {
+    let str = "";
+    if (this.head === null) return str;
+    let currentNode = this.head;
+    while (currentNode !== null) {
+      str += `( ${currentNode.value} ) -> `;
+      currentNode = currentNode.nextNode;
+    }
+    return (str += "null");
+  }
 }
 
 class Node {

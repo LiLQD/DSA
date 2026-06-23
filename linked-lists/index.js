@@ -17,6 +17,7 @@ class LinkedList {
   }
   prepend(value) {
     const newNode = new Node(value, this.head);
+    this.head = newNode;
   }
   size() {
     let listSize = 0;

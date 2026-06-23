@@ -57,12 +57,13 @@ class LinkedList {
     return headNode;
   }
   contains(value) {
-    if (this.head === null) return;
+    if (this.head === null) return false;
     let currentNode = this.head;
-    while (currentNode.value !== value) {
+    while (currentNode !== null) {
+      if (currentNode.value === value) return true;
       currentNode = currentNode.nextNode;
     }
-    return currentNode.value;
+    return false;
   }
   findIndex(value) {
     if (this.head === null) return;
@@ -72,6 +73,15 @@ class LinkedList {
       if (currentNode.nextNode === null) return;
       currentNode = currentNode.nextNode;
     }
+  }
+  toString() {
+    let str = "";
+    if (this.head === null) return str;
+    let currentNode = this.head;
+    while (currentNode.nextNode !== null) {
+      str += `( ${currentNode.value} ) -> `;
+    }
+    return (str += "null");
   }
 }
 class Node {

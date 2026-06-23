@@ -54,7 +54,7 @@ class LinkedList {
     if (this.headNode === null) return;
     let headNodeNode = this.headNode;
     this.headNode = this.headNode.nextNode;
-    return headNodeNode;
+    return headNodeNode.value;
   }
   contains(value) {
     if (this.headNode === null) return false;

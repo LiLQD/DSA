@@ -40,6 +40,16 @@ class LinkedList {
     }
     return currentNode.value;
   }
+  at(index) {
+    if (index < 0) return;
+    if (this.head === null) return;
+    let currentNode = this.head;
+    for (let i = 0; i < index; i++) {
+      if (currentNode.nextNode === null) return;
+      currentNode = currentNode.nextNode;
+    }
+    return currentNode.value;
+  }
 }
 class Node {
   value = null;

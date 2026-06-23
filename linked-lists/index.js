@@ -52,9 +52,9 @@ class LinkedList {
   }
   pop() {
     if (this.headNode === null) return;
-    let headNodeNode = this.headNode;
+    let head = this.headNode;
     this.headNode = this.headNode.nextNode;
-    return headNodeNode.value;
+    return head.value;
   }
   contains(value) {
     if (this.headNode === null) return false;
@@ -66,7 +66,7 @@ class LinkedList {
     return false;
   }
   findIndex(value) {
-    if (this.headNode === null) return;
+    if (this.headNode === null) return -1;
     let currentNode = this.headNode;
     let index = 0;
     while (currentNode !== null) {
@@ -74,7 +74,7 @@ class LinkedList {
       currentNode = currentNode.nextNode;
       index++;
     }
-    return;
+    return -1;
   }
   toString() {
     let str = '';

@@ -64,6 +64,15 @@ class LinkedList {
     }
     return currentNode.value;
   }
+  findIndex(value) {
+    if (this.head === null) return;
+    let currentNode = this.head;
+    for (let i = 0; i < this.size(); i++) {
+      if (currentNode.value === value) return i;
+      if (currentNode.nextNode === null) return;
+      currentNode = currentNode.nextNode;
+    }
+  }
 }
 class Node {
   value = null;

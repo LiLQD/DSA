@@ -27,6 +27,10 @@ class LinkedList {
     }
     return listSize;
   }
+  getHead() {
+    if (this.head === null) return;
+    return this.head.value;
+  }
 }
 class Node {
   value = null;

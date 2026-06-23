@@ -5,7 +5,7 @@ class LinkedList {
   append(value) {
     const newNode = new Node(value, null);
     if (this.head === null) {
-      this.head = newNode;
+      prepend(value);
       return;
     } else {
       let currentNode = this.head;
@@ -14,6 +14,9 @@ class LinkedList {
       }
       currentNode.nextNode = newNode;
     }
+  }
+  prepend(value) {
+    const newNode = new Node(value, this.head);
   }
 }
 class Node {

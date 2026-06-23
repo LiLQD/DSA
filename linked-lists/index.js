@@ -22,9 +22,9 @@ class LinkedList {
   size() {
     let listSize = 0;
     let currentNode = this.head;
-    while (currentNode.nextNode !== null) {
-      currentNode = currentNode.nextNode;
+    while (currentNode !== null) {
       listSize++;
+      currentNode = currentNode.nextNode;
     }
     return listSize;
   }

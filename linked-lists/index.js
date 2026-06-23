@@ -86,6 +86,25 @@ class LinkedList {
     }
     return (str += 'null');
   }
+  insertAt(index, ...values) {
+    if (index < 0) throw new RangeError();
+    else if (index === 0) {
+      for (let i = values.length - 1; i >= 0; i--) {
+        this.prepend(values[i]);
+      }
+      return;
+    }
+    let currentNode = this.headNode;
+    for (let i = 0; i < index - 1; i++) {
+      if (currentNode.nextNode === null) throw new RangeError();
+      currentNode = currentNode.nextNode;
+    }
+    values.forEach((e) => {
+      const newNode = new Node(e, currentNode.nextNode);
+      currentNode.nextNode = newNode;
+      currentNode = newNode;
+    });
+  }
 }
 class Node {
   constructor(value = null, node = null) {

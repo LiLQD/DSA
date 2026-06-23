@@ -3,17 +3,16 @@ class LinkedList {
     this.headNode = null;
   }
   append(value) {
-    const newNode = new Node(value, null);
     if (this.headNode === null) {
       this.prepend(value);
       return;
-    } else {
-      let currentNode = this.headNode;
-      while (currentNode.nextNode !== null) {
-        currentNode = currentNode.nextNode;
-      }
-      currentNode.nextNode = newNode;
     }
+    const newNode = new Node(value, null);
+    let currentNode = this.headNode;
+    while (currentNode.nextNode !== null) {
+      currentNode = currentNode.nextNode;
+    }
+    currentNode.nextNode = newNode;
   }
   prepend(value) {
     const newNode = new Node(value, this.headNode);

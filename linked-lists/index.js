@@ -18,6 +18,15 @@ class LinkedList {
   prepend(value) {
     const newNode = new Node(value, this.head);
   }
+  size() {
+    let listSize = 0;
+    let currentNode = this.head;
+    while (currentNode.nextNode !== null) {
+      currentNode = currentNode.nextNode;
+      listSize++;
+    }
+    return listSize;
+  }
 }
 class Node {
   value = null;

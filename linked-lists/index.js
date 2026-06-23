@@ -105,6 +105,18 @@ class LinkedList {
       currentNode = newNode;
     });
   }
+  removeAt(index) {
+    if (index < 0) throw new RangeError();
+    let currentNode = this.headNode;
+    if (!currentNode) throw new RangeError();
+    if (index === 0) return this.pop();
+    if (index >= this.size()) throw new RangeError();
+    for (let i = 0; i < index - 1; i++) {
+      if (currentNode.nextNode === null) throw new RangeError();
+      currentNode = currentNode.nextNode;
+    }
+    currentNode.nextNode = currentNode.nextNode.nextNode;
+  }
 }
 class Node {
   constructor(value = null, node = null) {

@@ -87,7 +87,6 @@ class LinkedList {
     return (str += "null");
   }
 }
-
 class Node {
   value = null;
   nextNode = null;
@@ -96,3 +95,5 @@ class Node {
     this.nextNode = node;
   }
 }
+
+module.exports = { LinkedList, Node };

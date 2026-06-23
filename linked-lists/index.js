@@ -106,11 +106,9 @@ class LinkedList {
     });
   }
   removeAt(index) {
-    if (index < 0) throw new RangeError();
-    let currentNode = this.headNode;
-    if (!currentNode) throw new RangeError();
+    if (index < 0 || index >= this.size()) throw new RangeError();
     if (index === 0) return this.pop();
-    if (index >= this.size()) throw new RangeError();
+    let currentNode = this.headNode;
     for (let i = 0; i < index - 1; i++) {
       if (currentNode.nextNode === null) throw new RangeError();
       currentNode = currentNode.nextNode;

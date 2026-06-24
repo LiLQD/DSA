@@ -114,6 +114,19 @@ class LinkedList {
     }
     currentNode.nextNode = currentNode.nextNode.nextNode;
   }
+  reverse() {
+    if (this.headNode === null || this.headNode.nextNode === null) return -1;
+    let prev = null;
+    let current = this.headNode;
+    let next = current.nextNode;
+    while (current !== null) {
+      next = current.nextNode;
+      current.nextNode = prev;
+      prev = current;
+      current = next;
+    }
+    this.headNode = prev;
+  }
 }
 class Node {
   constructor(value = null, node = null) {

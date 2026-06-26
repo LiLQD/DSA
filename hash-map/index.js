@@ -3,7 +3,7 @@ class HashMap {
   constructor(loadFactor = 0.75, capacity = 16) {
     this.loadFactor = loadFactor;
     this.capacity = capacity;
-    this.buckets = new Array[capacity].fill(null);
+    this.buckets = new Array(capacity).fill(null);
     this.count = 0;
   }
   indexValid(index) {
@@ -20,6 +20,27 @@ class HashMap {
   }
   length() {
     return this.count;
+  }
+  set(key, value) {
+    const index = this.hash(key);
+    this.indexValid(index);
+    const bucket = this.buckets[index];
+    if (this.buckets[index] === null) {
+      this.buckets[index] = new LinkedList();
+      this.buckets[index].append({ key, value });
+      this.count++;
+    } else {
+      let currentNode = this.buckets[index].headNode;
+      while (currentNode !== null) {
+        if (currentNode.value.key === key) {
+          currentNode.value.value = value;
+          return;
+        }
+        currentNode = currentNode.nextNode;
+      }
+      this.buckets[index].append({ key, value });
+      this.count++;
+    }
   }
 }
 

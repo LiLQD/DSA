@@ -24,23 +24,35 @@ class HashMap {
   set(key, value) {
     const index = this.hash(key);
     this.indexValid(index);
-    const bucket = this.buckets[index];
     if (this.buckets[index] === null) {
       this.buckets[index] = new LinkedList();
       this.buckets[index].append({ key, value });
       this.count++;
-    } else {
-      let currentNode = this.buckets[index].headNode;
-      while (currentNode !== null) {
-        if (currentNode.value.key === key) {
-          currentNode.value.value = value;
-          return;
-        }
-        currentNode = currentNode.nextNode;
-      }
-      this.buckets[index].append({ key, value });
-      this.count++;
     }
+    const bucket = this.buckets[index];
+    let currentNode = this.buckets[index].headNode;
+    while (currentNode !== null) {
+      if (currentNode.value.key === key) {
+        currentNode.value.value = value;
+        return;
+      }
+      currentNode = currentNode.nextNode;
+    }
+    this.buckets[index].append({ key, value });
+    this.count++;
+  }
+  get(key) {
+    const index = this.hash(key);
+    this.indexValid(index);
+    if (this.buckets[index] === null) return null;
+    let currentNode = this.buckets[index].headNode;
+    while (currentNode !== null) {
+      if (currentNode.value.key === key) {
+        return currentNode.value.value;
+      }
+      currentNode = currentNode.nextNode;
+    }
+    return null;
   }
 }
 

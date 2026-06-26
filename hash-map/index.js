@@ -1,10 +1,11 @@
 class HashMap {
   constructor(loadFactor = 0.75, capacity = 16) {
+    this.buckets = [];
     this.loadFactor = loadFactor;
     this.capacity = capacity;
   }
   indexValid(index) {
-    if (index < 0 || index >= buckets.length)
+    if (index < 0 || index >= this.buckets.length)
       throw new Error('Trying to access index out of bounds');
   }
   hash(key) {
@@ -15,5 +16,11 @@ class HashMap {
     }
     return hashCode;
   }
+  length() {
+    return this.buckets.length;
+  }
 }
+
+const map = new HashMap();
+console.log(map.length());
 module.exports = { HashMap };

@@ -54,6 +54,12 @@ class HashMap {
     }
     return null;
   }
+  has(key) {
+    const index = this.hash(key);
+    this.indexValid(index);
+    if (this.buckets[index] !== null) return true;
+    return false;
+  }
 }
 
 const map = new HashMap();

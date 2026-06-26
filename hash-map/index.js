@@ -1,11 +1,13 @@
+import { LinkedList } from '../linked-lists/index.js';
 class HashMap {
   constructor(loadFactor = 0.75, capacity = 16) {
-    this.buckets = [];
     this.loadFactor = loadFactor;
     this.capacity = capacity;
+    this.buckets = new Array[capacity].fill(null);
+    this.count = 0;
   }
   indexValid(index) {
-    if (index < 0 || index >= this.buckets.length)
+    if (index < 0 || index >= this.capacity)
       throw new Error('Trying to access index out of bounds');
   }
   hash(key) {

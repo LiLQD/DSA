@@ -19,10 +19,12 @@ class HashMap {
     return hashCode;
   }
   length() {
-    return this.buckets.length;
+    return this.count;
   }
 }
 
 const map = new HashMap();
+console.log(map.hash('Rama'));
 console.log(map.length());
-module.exports = { HashMap };
+
+export { HashMap };

@@ -82,6 +82,19 @@ class HashMap {
     }
     return false;
   }
+  keys() {
+    const arrKey = [];
+    this.buckets.forEach((list) => {
+      if (list !== null) {
+        let currentNode = list.headNode;
+        while (currentNode) {
+          arrKey.push(currentNode.value.key);
+          currentNode = currentNode.nextNode;
+        }
+      }
+    });
+    return arrKey;
+  }
 }
 
 const map = new HashMap();

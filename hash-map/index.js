@@ -95,6 +95,19 @@ class HashMap {
     });
     return arrKey;
   }
+  values() {
+    const arrKey = [];
+    this.buckets.forEach((list) => {
+      if (list !== null) {
+        let currentNode = list.headNode;
+        while (currentNode) {
+          arrKey.push(currentNode.value.value);
+          currentNode = currentNode.nextNode;
+        }
+      }
+    });
+    return arrKey;
+  }
 }
 
 const map = new HashMap();

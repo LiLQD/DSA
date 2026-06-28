@@ -96,17 +96,17 @@ class HashMap {
     return arrKey;
   }
   values() {
-    const arrKey = [];
+    const arrValue = [];
     this.buckets.forEach((list) => {
       if (list !== null) {
         let currentNode = list.headNode;
         while (currentNode) {
-          arrKey.push(currentNode.value.value);
+          arrValue.push(currentNode.value.value);
           currentNode = currentNode.nextNode;
         }
       }
     });
-    return arrKey;
+    return arrValue;
   }
 }
 

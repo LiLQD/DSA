@@ -297,7 +297,7 @@ describe('HashMap', () => {
   describe('growth / resizing', () => {
     test('doubles capacity when load factor is reached', () => {
       for (let i = 0; i < 13; i++) {
-        map.set(key`${i}`, value`${i}`);
+        map.set(`key${i}`, `value${i}`);
       }
 
       expect(map.capacity).toBe(32);

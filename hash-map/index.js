@@ -88,6 +88,7 @@ class HashMap {
       if (currentNode.value.key === key) {
         this.buckets[index].removeAt(nodeIndex);
         this.count--;
+        if (this.buckets[index].size() === 0) this.buckets[index] = null;
         return true;
       }
       currentNode = currentNode.nextNode;

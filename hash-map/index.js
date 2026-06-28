@@ -121,6 +121,12 @@ class HashMap {
     });
     return arrNode;
   }
+  clear() {
+    this.buckets = new Array(this.capacity).fill(null);
+    this.capacity = 16;
+    this.loadFactor = 0.75;
+    this.count = 0;
+  }
 }
 
 const map = new HashMap();

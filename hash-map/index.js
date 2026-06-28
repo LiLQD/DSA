@@ -108,6 +108,19 @@ class HashMap {
     });
     return arrValue;
   }
+  entries() {
+    const arrNode = [];
+    this.buckets.forEach((list) => {
+      if (list !== null) {
+        let currentNode = list.headNode;
+        while (currentNode) {
+          arrNode.push([currentNode.value.key, currentNode.value.value]);
+          currentNode = currentNode.nextNode;
+        }
+      }
+    });
+    return arrNode;
+  }
 }
 
 const map = new HashMap();

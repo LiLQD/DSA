@@ -18,7 +18,7 @@ const fibsRec = function (n) {
   return arr;
 };
 
-const mergeSort = function (arr) {
+export const mergeSort = function (arr) {
   if (arr.length <= 1) return arr;
   const middle = Math.floor(arr.length / 2);
   const leftArr = mergeSort(arr.slice(0, middle));
@@ -31,6 +31,3 @@ const mergeSort = function (arr) {
   }
   return result.concat(leftArr, rightArr);
 };
-console.log(fib(8));
-console.log(fibsRec(8));
-console.log(mergeSort([3, 2, 1, 13, 8, 5, 10, 1]));

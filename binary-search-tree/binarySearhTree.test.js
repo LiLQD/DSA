@@ -1,4 +1,4 @@
-const { Tree, Node } = require('./index');
+import { Tree, Node } from './index.js';
 describe('Node', () => {
   test('stores data and has left/right children', () => {
     const node = new Node(10);
